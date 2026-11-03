@@ -1,0 +1,9 @@
+# Large ML models
+Phishing_URL_Detection/model (1).pkl
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
