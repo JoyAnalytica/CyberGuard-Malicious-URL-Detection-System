@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#170507">
+
+    <title>PhishGuard | Phishing URL Detection</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js" defer></script>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="brand">
+                <span class="brand-shield">🛡</span>
+                <span>Phish<span>Guard</span></span>
+            </a>
+
+            <nav class="nav-links">
+                <a class="active" href="#home">⌂ Home</a>
+                <a href="#about">About</a>
+                <a href="#features">Features</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <button class="menu-toggle" id="menuToggle"
+                    type="button" aria-label="Toggle navigation"
+                    aria-expanded="false">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-container">
+
+                <div class="hero-content">
+                    <span class="eyebrow">
+                        <span class="live-dot"></span>
+                        
+                    </span>
+
+                    <h1>
+                        Phishing URL
+                        <span>Detection</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Check any URL and identify if it's Benign,
+                        Defacement, Malware or Phishing.
+                    </p>
+
+                    <div class="hero-points">
+                        <span>✓ Fast Detection</span>
+                        <span>✓ Multi-Class Analysis</span>
+                        <span>✓ AI Powered</span>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="shield-orbit orbit-one"></div>
+                    <div class="shield-orbit orbit-two"></div>
+
+                    <div class="hero-shield">
+                        <svg viewBox="0 0 120 140"
+                             xmlns="http://www.w3.org/2000/svg"
+                             aria-label="Security shield" role="img">
+                            <defs>
+                                <linearGradient id="shieldGradient"
+                                    x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0%" stop-color="#ff9b9b"/>
+                                    <stop offset="48%" stop-color="#ff252f"/>
+                                    <stop offset="100%" stop-color="#8b000b"/>
+                                </linearGradient>
+                            </defs>
+
+                            <path d="M60 5 L106 23 L101 75
+                                     Q91 111 60 132
+                                     Q29 111 19 75 L14 23 Z"
+                                  fill="#3a070d"
+                                  stroke="url(#shieldGradient)"
+                                  stroke-width="5"/>
+
+                            <path d="M60 17 L94 30 L90 72
+                                     Q83 99 60 116
+                                     Q37 99 30 72 L26 30 Z"
+                                  fill="#9b111d"
+                                  stroke="#ff777d"
+                                  stroke-width="2"/>
+
+                            <rect x="45" y="59" width="30" height="25"
+                                  rx="5" fill="#fff"/>
+
+                            <path d="M51 59 V49
+                                     A9 9 0 0 1 69 49 V59"
+                                  fill="none" stroke="#fff"
+                                  stroke-width="6" stroke-linecap="round"/>
+
+                            <circle cx="60" cy="70" r="3" fill="#e11b2b"/>
+                            <path d="M60 72 V78" stroke="#e11b2b"
+                                  stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <div class="protection-status">
+                        <span class="live-dot"></span>
+                        Security Analysis Active
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="workspace">
+            <div class="content-container">
+
+                <section class="scanner-card" aria-label="URL scanner">
+                    <div class="scanner-heading">
+                        <div>
+                            <span class="section-kicker">URL SCANNER</span>
+                            <h2>Check a Website</h2>
+                            <p>Enter a URL to analyze its security classification.</p>
+                        </div>
+                        <div class="scanner-icon">⌕</div>
+                    </div>
+
+                    <form id="urlForm">
+                        <label for="urlInput" class="input-label">
+                            <span class="link-icon">↗</span>
+                            Enter URL to Check
+                        </label>
+
+                        <div class="url-input-group">
+                            <span class="input-link-icon">↗</span>
+
+                            <input
+                                type="text"
+                                id="urlInput"
+                                name="url"
+                                placeholder="https://example.com"
+                                autocomplete="url"
+                                spellcheck="false"
+                                required
+                            >
+
+                            <button type="submit" id="checkButton">
+                                <span class="search-icon">⌕</span>
+                                <span id="buttonText">Check Now</span>
+                            </button>
+                        </div>
+
+                        <p class="input-hint">
+                            Enter a website URL to analyze its security.
+                        </p>
+                    </form>
+
+                    <div id="errorMessage" class="error-message"
+                         role="alert" hidden></div>
+                </section>
+
+                <section id="resultSection" class="result-card" hidden>
+                    <div class="result-summary">
+                        <div id="resultShield" class="result-shield">
+                            <svg viewBox="0 0 100 115"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 aria-hidden="true">
+                                <path d="M50 4 L90 20 L86 63
+                                         Q78 91 50 108
+                                         Q22 91 14 63 L10 20 Z"
+                                      fill="currentColor" opacity=".17"/>
+                                <path d="M50 4 L90 20 L86 63
+                                         Q78 91 50 108
+                                         Q22 91 14 63 L10 20 Z"
+                                      fill="none" stroke="currentColor"
+                                      stroke-width="5" stroke-linejoin="round"/>
+                                <path d="M30 55 L44 69 L70 41"
+                                      fill="none" stroke="currentColor"
+                                      stroke-width="8" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
+                        <div class="result-info">
+                            <span id="resultEyebrow" class="result-eyebrow">
+                                ANALYSIS COMPLETE
+                            </span>
+
+                            <h2 id="resultTitle">URL Analysis Result</h2>
+
+                            <p class="result-label">
+                                This URL is classified as:
+                            </p>
+
+                            <span id="resultClass" class="class-badge">
+                                Benign
+                            </span>
+
+                            <p id="resultUrl" class="result-url"></p>
+                        </div>
+                    </div>
+
+                    <div class="result-divider"></div>
+
+                    <div class="probability-panel">
+                        <div class="confidence-heading">
+                            <span class="chart-icon">▥</span>
+                            <span>Classification Confidence</span>
+                        </div>
+
+                        <div class="confidence-number">
+                            <strong id="confidenceValue">0%</strong>
+                            <span>Highest class probability</span>
+                        </div>
+
+                        <div id="probabilityList" class="probability-list">
+                            <div class="probability-row">
+                                <span>Benign</span>
+                                <div class="progress-track">
+                                    <div class="progress-fill benign-fill"
+                                         style="width:0%"></div>
+                                </div>
+                                <strong>0.00%</strong>
+                            </div>
+                            <div class="probability-row">
+                                <span>Defacement</span>
+                                <div class="progress-track">
+                                    <div class="progress-fill defacement-fill"
+                                         style="width:0%"></div>
+                                </div>
+                                <strong>0.00%</strong>
+                            </div>
+                            <div class="probability-row">
+                                <span>Malware</span>
+                                <div class="progress-track">
+                                    <div class="progress-fill malware-fill"
+                                         style="width:0%"></div>
+                                </div>
+                                <strong>0.00%</strong>
+                            </div>
+                            <div class="probability-row">
+                                <span>Phishing</span>
+                                <div class="progress-track">
+                                    <div class="progress-fill phishing-fill"
+                                         style="width:0%"></div>
+                                </div>
+                                <strong>0.00%</strong>
+                            </div>
+                        </div>
+
+                        <p class="probability-note">
+                            Probabilities are model estimates, not a guarantee
+                            that a website is safe or malicious.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="features-section" id="features">
+                    <div class="section-title">
+                        <span></span>
+                        <h2>Key Features</h2>
+                        <span></span>
+                    </div>
+
+                    <div class="feature-grid">
+                        <article class="feature-card">
+                            <div class="feature-icon">ϟ</div>
+                            <div>
+                                <h3>Real-Time Analysis</h3>
+                                <p>Get instant prediction results.</p>
+                            </div>
+                        </article>
+
+                        <article class="feature-card">
+                            <div class="feature-icon">🛡</div>
+                            <div>
+                                <h3>Multi-Class Detection</h3>
+                                <p>Detect four URL categories.</p>
+                            </div>
+                        </article>
+
+                        <article class="feature-card">
+                            <div class="feature-icon">✳</div>
+                            <div>
+                                <h3>powered model</h3>
+                                <p>Machine learning classification.</p>
+                            </div>
+                        </article>
+
+                        <article class="feature-card">
+                            <div class="feature-icon">♙</div>
+                            <div>
+                                <h3>Security Focused</h3>
+                                <p>Understand potential URL risks.</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="about-card" id="about">
+                    <div class="about-heading">
+                        <span class="section-kicker">ABOUT PHISHGUARD</span>
+                        <h2>A Smarter Way to Detect Suspicious URLs.</h2>
+                    </div>
+
+                    <p>
+                        PhishGuard uses a trained machine learning model
+                        to classify URLs into Benign, Defacement, Malware
+                        and Phishing categories. It provides a quick
+                        screening result to help users understand potential
+                        risks before visiting unfamiliar websites.
+                    </p>
+                </section>
+
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="footer">
+        <div class="footer-container">
+            <span>© 2026 PhishGuard. All rights reserved.</span>
+            <span>Stay Safe Online <span class="heart">♥</span></span>
+        </div>
+    </footer>
+</body>
+</html>
